@@ -9,18 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/font": "^14.2.8",
+    "gray-matter": "^4.0.3",
+    "next": "^14.2.13",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.8"
+    "react-swiper": "^0.1.5",
+    "rehype-raw": "^7.0.0",
+    "rehype-stringify": "^10.0.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "remark-rehype": "^11.1.1",
+    "swiper": "^11.1.14"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.8",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.8"
+    "typescript": "^5"
   }
 }
