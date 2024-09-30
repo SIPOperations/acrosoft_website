@@ -1,5 +1,5 @@
 import Banner from '../components/Banner';
-import Sponsers from '../components/Sponsers'
+// import Sponsers from '../components/Sponsers'
 import Services from '../components/Services'
 import Work from '../components/Work'
 import Digital from '../components/Digital'
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <Banner />
-      <Sponsers />
+      {/* <Sponsers /> */}
       <Services />
       <Work />
       <Digital />

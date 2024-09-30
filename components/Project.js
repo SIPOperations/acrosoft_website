@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BlackBtn from "./BlackBtn";
+import BlueBtn from "./BlueBtn";
 import whiteArrow from "../public/img/whiteArrow.svg";
 import projectImg from "../public/img/projectImg.png";
 import seo from "../public/img/seo.png";
@@ -37,7 +37,7 @@ const Project = () => {
               Ullamcorper dis suspendisse dictumst torquent primis at netus.
             </p>
           </div>
-          <BlackBtn name={"View Details"} icon={whiteArrow} />
+          <BlueBtn name={"View Details"} icon={whiteArrow} />
         </div>
         <div className="p-0 m-0 flex justify-center xl:justify-start">
           <Image src={projectImg} alt="" className="p-0 m-0" style={{}} />
@@ -67,7 +67,7 @@ const Project = () => {
               Ullamcorper dis suspendisse dictumst torquent primis at netus.
             </p>
           </div>
-          <BlackBtn name={"View Details"} icon={whiteArrow} />
+          <BlueBtn name={"View Details"} icon={whiteArrow} />
         </div>
       </div>
     </div>

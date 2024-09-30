@@ -1,6 +1,6 @@
 import services from '../public/img/services.png'
-import topLightLogo from '../public/img/lightLogo.svg'
-import bottomLightLogo from '../public/img/lightLogo2.svg'
+import topLightLogo from '../public/img/newlightLogo.svg'
+import bottomLightLogo from '../public/img/newlightLogo2.svg'
 import openlink from '../public/img/openlink.svg'
 import Listing2 from './Listing2'
 import SmallImage from './SmallImage'
@@ -27,7 +27,7 @@ const Services = () => {
   ]
   return (
     <div className="text-center xl:text-left flex flex-col gap-y-28 xl:flex-row justify-between 
-    px-16 xl:px-40 py-20 bg-[#F8F8F8]">
+    px-16 xl:px-40 py-20 bg-[#F4F9FF]">
         <Listing2 myList={servicelist} heading={'Our Services'} icon={true} hover={true} />
         <SmallImage myImage={images} />
     </div>

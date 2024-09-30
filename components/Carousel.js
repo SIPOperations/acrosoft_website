@@ -1,14 +1,14 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import leftArrow from "../public/img/leftArrow.svg";
-import rightArrow from "../public/img/rightArrow.svg";
+import leftArrow from "../public/img/leftArrow2.svg";
+import rightArrow from "../public/img/rightArrow2.svg";
 import whiteLogoSlider from "../public/img/whiteLogoSlider.svg";
 import whiteStar1 from "../public/img/whiteStar.svg";
 import orangeStar1 from "../public/img/orangeStar.svg";
 import whiteStar2 from "../public/img/whiteStar.svg";
 import orangeStar2 from "../public/img/orangeStar.svg";
-import BlackBtn from "./BlackBtn";
+import TransBtn from "./TransBtn";
 
 const Carousel = () => {
   const images = [
@@ -121,7 +121,7 @@ const Carousel = () => {
 
         {/* Dots Navigation */}
         <div className="flex justify-center space-x-2 mt-6 items-center">
-          <BlackBtn handle={handlePrevious} icon={leftArrow} />
+          <TransBtn handle={handlePrevious} icon={leftArrow} />
           {images
             .slice(currentIndex, currentIndex + itemsToShow)
             .map((_, index) => (
@@ -132,7 +132,7 @@ const Carousel = () => {
                 }`}
               />
             ))}
-          <BlackBtn handle={handleNext} icon={rightArrow} />
+          <TransBtn handle={handleNext} icon={rightArrow} />
         </div>
       </div>
     </div>

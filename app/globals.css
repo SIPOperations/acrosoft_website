@@ -21,17 +21,17 @@
   border-bottom: 1px solid #1B1B1B;
 }
 .smallLogo{
-  background-image: url('../public/img/smallLogo.svg');
+  background-image: url('../public/img/lightBlueLogo.svg');
   width: 14.17px;
   height: 15px;
 }
 .smallLogo2{
-  background-image: url('../public/img/smallLogoHover.svg');
+  background-image: url('../public/img/darkBlueLogo.svg');
   width: 14.17px;
   height: 15px;
 }
 .service:hover .smallLogo{
-  background-image: url('../public/img/smallLogoHover.svg');
+  background-image: url('../public/img/darkBlueLogo.svg');
 }
 .consult::after{
   content: "";

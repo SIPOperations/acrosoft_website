@@ -1,6 +1,6 @@
 import Image from "next/image";
-import topLightLogo from '../public/img/lightLogo.svg'
-import bottomLightLogo from '../public/img/lightLogo2.svg'
+import topLightLogo from '../public/img/newlightLogo.svg'
+import bottomLightLogo from '../public/img/newlightLogo2.svg'
 
 const SmallImage = (props) => {
   return (
