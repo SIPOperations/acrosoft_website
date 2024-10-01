@@ -4,7 +4,7 @@ import Image from "next/image";
 const WhiteBtn = (props) => {
   return (
     <button 
-    className={`bg-white rounded-md h-12 px-3 flex items-center gap-1
+    className={`bg-white rounded-md h-14 px-5 flex items-center gap-1
       ${props.border ? 'border border-[#1B1B1B]' : ''}`}
     onClick={props.handle ? props.handle : null}>
       <span

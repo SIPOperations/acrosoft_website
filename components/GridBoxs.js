@@ -1,5 +1,7 @@
 import Image from "next/image";
-import maintainIcon from "../public/img/maintainIcon.svg";
+import reliability from "../public/img/reliability2.svg";
+import workTime from "../public/img/time2.svg";
+import maintainIcon from "../public/img/maintainIcon2.svg";
 import bussiness from "../public/img/bussiness.svg";
 import technology from "../public/img/technology.svg";
 import strategy from "../public/img/strategy.svg";
@@ -21,7 +23,10 @@ const GridBoxs = (props) => {
           className={`flex items-center text-center lg:text-left lg:items-start p-10 flex-col gap-2
             ${props.shadow ? 'boxShade' : ''}`}
         >
-          {work.heading !== "Maintainable" &&
+          {
+          work.heading !== "Timely Work" &&
+          work.heading !== "Reliability" &&
+          work.heading !== "Maintainable" &&
           work.heading !== "Software Implementation Strategy" &&
           work.heading !== "Technology Advisory Services" &&
           work.heading !== "Business Solution Consulting" ? (
@@ -31,7 +36,9 @@ const GridBoxs = (props) => {
               <Image src={work.img} alt="" />
               <Image
                 src={
-                work.heading==='Maintainable' ? 
+                work.heading==='Timely Work' ?
+                workTime : work.heading==='Reliability' ?
+                reliability : work.heading==='Maintainable' ? 
                 maintainIcon : work.heading==='Software Implementation Strategy' ?
                 strategy : work.heading==='Technology Advisory Services' ?
                 technology : bussiness

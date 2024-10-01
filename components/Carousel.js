@@ -60,10 +60,10 @@ const Carousel = () => {
   };
 
   const handlePrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex - itemsToShow >= 0 ? prevIndex - 1 : images.length - itemsToShow
-    );
-  };
+  setCurrentIndex((prevIndex) =>
+    prevIndex - 1 < 0 ? images.length - itemsToShow : prevIndex - 1
+  );
+};
 
   return (
     <div className="px-16 py-20 lg:px-40 flex flex-col items-center xl:items-start">
@@ -71,7 +71,7 @@ const Carousel = () => {
         className="font-extrabold text-center xl:text-left mb-20"
         style={{ fontSize: "64px", color: "#1B1B1B", lineHeight: "75px" }}
       >
-        Client Testimonials
+        Client <span className="text-[#1C6EC4]">Testimonials</span>
       </h1>
 
       {/* Carousel Container */}

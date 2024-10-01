@@ -11,7 +11,7 @@ const Project = () => {
         className="font-extrabold text-center xl:text-left"
         style={{ fontSize: "64px", color: "#1B1B1B", lineHeight: "75px" }}
       >
-        Our Latest Projects
+        Our Latest <span className="text-[#1C6EC4]">Projects</span>
       </h1>
       <div className="grid grid-cols-1 xl:grid-cols-2 grid-flow-row gap-5 gap-y-6 items-center 
       justify-center">

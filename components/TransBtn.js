@@ -4,7 +4,7 @@ import Image from "next/image"
 const TransBtn = (props) => {
   return (
     <button 
-    className="border border-blue-800 rounded-lg flex items-center gap-1 px-4 py-2 text-sm"
+    className="border border-[#1C6EC4] rounded-lg flex items-center gap-1 px-4 py-2 text-sm"
     onClick={props.handle ? props.handle : null}
     >
         {props.name ? props.name : ""}

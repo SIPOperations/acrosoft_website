@@ -2,10 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Listing2 = (props) => {
+  const headingArray=props.heading.split(' ')
+  const lastWordArr=headingArray.splice(headingArray.length-1,1)
+  const lastWord=lastWordArr.toString()
+  const heading=headingArray.toString().replace(/,/g,' ')
   return (
     <div className={`${props.heading==='Our Values'?'w-full':'w-auto'}`}>
       <h1 className="font-extrabold text-[64px] text-[#1B1B1B]">
-        {props.heading}
+        {heading} <span className="text-[#1C6EC4]">{lastWord}</span>
       </h1>
       <ul role="list">
         {props.myList.map((content, index) => (

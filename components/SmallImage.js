@@ -15,7 +15,7 @@ const SmallImage = (props) => {
               ? "absolute -top-11 -left-12"
               : image === bottomLightLogo
               ? "absolute -bottom-7 -right-5"
-              : "relative z-10 min-w-full"
+              : "relative z-10 min-w-full shadow-xl rounded-xl"
           }`}
         />
       ))}
