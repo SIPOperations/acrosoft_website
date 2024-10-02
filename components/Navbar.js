@@ -15,17 +15,17 @@ import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const router=useRouter()
-  const { isOpen,setIsOpen, dropdownToggle } = useContext(DropdownContext);
+  const { isOpen,setIsOpen } = useContext(DropdownContext);
   const { isShow,setIsShow } = useContext(SidebarContext);
-  const navlinks = ["Services", "Careers", "Blogs", "Testimonials", "About Us"];
+  const navlinks = ["Home","Services", "Careers", "Blogs", "Testimonials", "About Us"];
   const collapse=()=>{
     setIsOpen(0)
     setIsShow(0)
   }
   return (
-    <div className="absolute text-white z-10 w-full">
-      <div>
-        <div className={`px-16 xl:px-40 py-4 flex items-center justify-between`}>
+    <div className="absolute text-white z-10 w-full navFrame">
+      <div className="navbar">
+        <div className={`navLinks px-16 xl:px-40 py-4 flex items-center justify-between`}>
           <Link href='/' onClick={collapse}>
             <Image src={Logo} alt="Logo" />
           </Link>
@@ -35,17 +35,23 @@ const Navbar = () => {
                 <li key={index}>
                   <Link
                     href={
-                      navlink !== "Services" ? `/${navlink.toLowerCase().replace(' ','-')}` : ""
+                      navlink !== "Services" && navlink !== "Home" ?
+                       `/${navlink.toLowerCase().replace(' ','-')}` : 
+                       navlink==="Home" ? '/' : ''
                     }
-                    className="flex gap-1 text-base"
-                    onClick={navlink === "Services" ? dropdownToggle : ""}
+                    className={`flex gap-1 text-base 
+                    ${navlink === "Services" ? 
+                    'group hover:h-[5.5rem] serviceChild flex items-center' : 
+                    ''}`}
+                    // onClick={navlink === "Services" ? dropdownToggle : ""}
                   >
                     {navlink}
                     {navlink === "Services" && (
                       <Image
                         src={Dropdown_arrow}
                         alt=""
-                        className={`pt-0.5 ${isOpen === 1 ? "rotate-180" : ""}`}
+                        className={`pt-0.5 group-hover:rotate-180 downArrow
+                        ${isOpen === 1 ? "rotate-180" : ""}`}
                       />
                     )}
                   </Link>
@@ -60,9 +66,10 @@ const Navbar = () => {
       <Dropdown />
       <Dropdown2 />
       <Sidebar />
-      {(isOpen === 1 || isShow === 1) && (
+      { (
         <div
-          className="fixed top-0 left-0 bg-gray-500 bg-opacity-75 h-screen w-full -z-10"
+          className={`hidden modal fixed top-0 left-0 bg-gray-500 bg-opacity-75 h-screen w-full -z-10
+          ${isOpen === 1 || isShow === 1 ? 'block' : ''}`}
           aria-hidden="true"
         ></div>
       )}

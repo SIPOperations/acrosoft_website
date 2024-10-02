@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+.navLinks:has(.serviceChild:hover){
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.navbar:has(.serviceChild:hover)~.modal{
+  display: block;
+}
+.navbar:has(.serviceChild:hover)~.dropdown{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  height: auto;
+}
+.dropdown:hover{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  height: auto;
+}
+.dropdown:hover~.modal{
+  display: block;
+}
+.navFrame:has(.dropdown:hover) .navbar .navLinks div ul li .serviceChild .downArrow{
+  rotate: 180deg;
+}
 #bannerVideo{
   object-fit: fill;
 }
