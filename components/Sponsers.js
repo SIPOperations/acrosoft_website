@@ -26,8 +26,8 @@ const Sponsers = () => {
     justify-evenly xl:justify-between gap-y-10 xl:px-40 px-16 py-6 font-normal" 
     style={
         {
-            backgroundColor:'#EFEFEF',
-            border:'0.5px solid #D3D3D3',
+            // backgroundColor:'#EFEFEF',
+            // border:'0.5px solid #D3D3D3',
             color:'#C7C7C7',
             fontSize:'32px'
         }

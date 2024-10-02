@@ -1,40 +1,38 @@
 import Image from 'next/image'
-import london from '@/public/img/london.png'
-import sharjah from '@/public/img/sharjah.png'
-import decatur from '@/public/img/decatur.png'
-import location from '@/public/img/location.svg'
 
-const Offices = () => {
-  const offices=[
-    {
-        name:'London',
-        img:london,
-        icon:location,
-        address:'3rd floor, 5-8 Dysart St., EC2A 2BX'
-    },{
-        name:'Sharjah',
-        img:sharjah,
-        icon:location,
-        address:'SAIF Executive Office P8-04-45'
-    },{
-        name:'Decatur',
-        img:decatur,
-        icon:location,
-        address:'160 Clairemont Ave, Suite 200, GA 30030'
-    }
-  ]
+const Offices = (props) => {
   return (
-    <div className="text-center xl:text-left flex flex-col gap-2 justify-between lg:justify-start
-    px-16 xl:px-40 py-20 bg-[#F8F8F8]">
+    <div className={`text-center xl:text-left flex flex-col gap-2 justify-between lg:justify-start
+    px-16 xl:px-40 py-20 ${props.video ? '' : 'bg-[#F8F8F8]'}`}>
         <h1 className="font-extrabold text-center xl:text-left text-[64px] text-[#1B1B1B]">
-            Our Offices
+            {props.heading}
         </h1>
         <div className="flex flex-col lg:flex-row justify-center xl:justify-start items-center gap-y-8
         gap-x-20">
-            {offices.map((office,index)=>(
-                <div key={index} className='flex flex-col gap-1'>
-                    <Image src={office.img} alt={office.name} />
-                    <h2 className='font-medium text-[32px]'>{office.name}</h2>
+            {props.data.map((office,index)=>(
+                <div key={index} className={`flex flex-col gap-1 
+                ${props.video ? 'group items-center cursor-pointer relative' : ''}`}>
+                    {!props.video ? 
+                    <Image src={office.img} alt={office.name ? office.name : ''} /> :
+                     <div className='relative'>
+                         <Image src={office.img} alt={office.name ? office.name : ''} />
+                         <div className='h-full w-full absolute top-0 left-0 group-hover:flex 
+                         items-center justify-center hidden'>
+                             {
+                                (office.btn && office.playIcon) &&
+                                <div 
+                                className='h-full w-full absolute top-0 left-0 flex items-center 
+                                justify-center'>
+                                    <div className='relative'>
+                                        <Image src={office.btn} alt='' />
+                                        <Image src={office.playIcon} alt=''
+                                        className='absolute top-2.5 left-4' />
+                                    </div>
+                                </div>
+                             }   
+                         </div>   
+                     </div>}
+                    {office.name && <h2 className='font-medium text-[32px]'>{office.name}</h2>}
                     <div className='flex items-center justify-center xl:justify-start gap-2'>
                         <Image src={office.icon} alt='' />
                         <p className='font-normal text-base text-[#858585]'>{office.address}</p>

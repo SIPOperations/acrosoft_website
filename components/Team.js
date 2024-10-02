@@ -1,7 +1,7 @@
 import SmallImage from "./SmallImage";
 import team from "../public/img/team.png";
 
-const Team = () => {
+const Team = (props) => {
   const image = [team];
   return (
     <div className="flex flex-col gap-5 text-center xl:text-left px-16 xl:px-40 py-20">
@@ -11,8 +11,12 @@ const Team = () => {
       >
         <div className="xl:w-2/4 w-auto">
           <h1 className="font-extrabold text-[64px] text-[#1B1B1B]">
-            Meet the Team
+            {props.heading}
           </h1>
+          {
+            props.heading2 &&
+            <h2 className="font-medium text-[32px]">{props.heading2}</h2>
+          }
           <p className="font-normal text-xl text-[#858585]">
             Our team is made up of talented engineers, designers, and project
             managers who share a passion for technology. With diverse
@@ -24,7 +28,7 @@ const Team = () => {
             CTO at <span className="text-black font-bold">Tech Innovators</span>
           </p>
         </div>
-        <SmallImage myImage={image} />
+        <SmallImage myImage={image} profile={true} />
       </div>
     </div>
   );

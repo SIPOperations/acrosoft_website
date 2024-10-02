@@ -16,7 +16,7 @@ const page = () => {
         <Header bgImage={about} heading={''} />
         <Mission />
         <Values />
-        <Team />
+        <Team heading={'Meet the Team'} />
         <ContactForm />
     </div>
   )
