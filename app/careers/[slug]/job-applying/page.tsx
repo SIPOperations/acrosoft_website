@@ -26,7 +26,7 @@ const page = async ({ params }: PostPageProps) => {
                 <title>{postData.title}</title>
             </head> */}
             <Header bgImage={careers} heading={postData.title} data={data} />
-            <ApplyingForm />
+            <ApplyingForm heading={postData.title} />
         </div>
     )
 }
