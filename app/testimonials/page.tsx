@@ -1,6 +1,6 @@
 import Header from "@/components/Header"
 import testimonials from "@/public/img/testimonials.png"
-import Sponsers from "@/components/Sponsers"
+// import Sponsers from "@/components/Sponsers"
 import ContactForm from "@/components/ContactForm"
 import Team from "@/components/Team"
 import ClientQuotes from "@/components/ClientQuotes"
@@ -40,7 +40,7 @@ const page = () => {
         <Team heading={'What Our Client Say'} heading2={'David Lee'} />
         <ClientQuotes />
         <Offices heading={'Video Testimonials'} data={videos} video={true} />
-        <Sponsers />
+        {/* <Sponsers /> */}
         <ContactForm />
     </div>
   )

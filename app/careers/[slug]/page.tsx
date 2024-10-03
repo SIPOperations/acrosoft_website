@@ -23,11 +23,11 @@ const PostPage = async ({ params }: PostPageProps) => {
   }
   return (
     <div>
-      <head>
+      {/* <head>
         <title>{postData.title}</title>
-      </head>
+      </head> */}
       <Header bgImage={careers} heading={postData.title} data={data} />
-      <Description content={postData.contentHtml} />
+      <Description content={postData.contentHtml} dynamicPath={postData.slug} />
     </div>
   );
 };
