@@ -1,9 +1,9 @@
 import Link from "next/link"
-import { DropdownContext } from '@/context/DropdownContext';
-import { useContext } from 'react';
+// import { DropdownContext } from '@/context/DropdownContext';
+// import { useContext } from 'react';
 
 const ServicesList = () => {
-  const {dropdownToggle}=useContext(DropdownContext)
+  // const {dropdownToggle}=useContext(DropdownContext)
   const serviceList=[
     'IT Consulting',
     'Software Engineering',
@@ -23,7 +23,7 @@ const ServicesList = () => {
           <li key={index}>
             <Link href={`${service!=='DevOps' || service!=='Testing' ?
               `/${service.toLowerCase().replace(' ','-')}` : 
-              `/${service.toLowerCase()}`}`} onClick={dropdownToggle}>
+              `/${service.toLowerCase()}`}`}>
               {service}
             </Link>
           </li>

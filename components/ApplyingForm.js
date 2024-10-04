@@ -14,13 +14,13 @@ const ApplyingForm = (props) => {
     headline: "",
     phone: "",
     address: "",
-    photo: "",
+    photo: null,
   });
   const [profile, setProfile] = useState({
     // education: "",
     // experience: "",
     summary: "",
-    resume: "",
+    resume: null,
   });
   const [details, setDetails] = useState({
     coverletter: "",
@@ -43,7 +43,7 @@ const ApplyingForm = (props) => {
   const handleFileChange = (e) => {
     const name=e.target.name
     const selectedFiles = Array.from(e.target.files)
-    const singleFile=selectedFiles[0].name 
+    const singleFile=selectedFiles[0]
     setPersonalInfo((prevData)=>({
       ...prevData,
       [name]:singleFile
@@ -69,7 +69,7 @@ const ApplyingForm = (props) => {
       headline: "",
       phone: "",
       address: "",
-      // photo: "",
+      photo: null,
     })
     setProfile({
       // education: "",
