@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@next/font": "^14.2.8",
+    "emailjs-com": "^3.2.0",
     "gray-matter": "^4.0.3",
     "next": "^14.2.13",
+    "nodemailer": "^6.9.15",
     "react": "^18",
     "react-dom": "^18",
     "react-swiper": "^0.1.5",

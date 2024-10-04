@@ -5,8 +5,8 @@ import photoIcon from "@/public/img/photoIcon.svg";
 import { useState } from "react";
 
 const ApplyingForm = (props) => {
-  const [database, setDatabase] = useState([]);
-  // const [formData, setFormData] = useState([]);
+  const [database, setDatabase] = useState({});
+  // const [htmlContent,setHtmlContent]=useState('')
   const [personalInfo, setPersonalInfo] = useState({
     firstname: "",
     lastname: "",
@@ -53,15 +53,60 @@ const ApplyingForm = (props) => {
       [name]:singleFile
     }))
   };
-  const handleSubmit=(e)=>{
+  // const generateHtmlContent = (title,data) => {
+  //   return `
+  //     <h2>Form data for the post of ${title}</h2>
+  //     <p><strong>First Name:</strong> ${data.firstname}</p>
+  //     <p><strong>Last Name:</strong> ${data.lastname}</p>
+  //     <p><strong>Email:</strong> ${data.email}</p>
+  //     <p><strong>Headline:</strong> ${data.headline}</p>
+  //     <p><strong>Phone Number:</strong> ${data.phone}</p>
+  //     <p><strong>Address:</strong> ${data.address}</p>
+  //     <p><strong>Photo:</strong> ${data.file?.name || 'No file uploaded'}</p>
+  //     <p><strong>Summary:</strong> ${data.summary}</p>
+  //     <p><strong>Resume:</strong> ${data.file?.name || 'No file uploaded'}</p>
+  //     <p><strong>Cover Letter:</strong> ${data.coverletter}</p>
+  //   `;
+  // };
+  const handleSubmit= async(e)=>{
     e.preventDefault()
     // setFormData((prevData)=>[prevData,personalInfo,profile,details])
-    setDatabase((prevData)=>[
-      ...prevData,{
+    const combinedData = {
+      firstname: personalInfo.firstname,
+      lastname: personalInfo.lastname,
+      email: personalInfo.email,
+      headline: personalInfo.headline,
+      phone: personalInfo.phone,
+      address: personalInfo.address,
+      photo: personalInfo.photo,  // If you're sending just the name of the file
+      summary: profile.summary,
+      resume: profile.resume,     // If you're sending just the name of the file
+      coverletter: details.coverletter,
+    };
+    setDatabase({
         post:props.heading,
-        data:personalInfo
+        data:combinedData
+      })
+    try {
+      const response = await fetch('/api/emailHandle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(database),
+      });
+
+      if (response.ok) {
+        alert('Email sent successfully!');
+      } else {
+        alert('Failed to send email.');
       }
-    ])
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred.');
+    }
+    // const html=generateHtmlContent(props.heading,personalInfo)
+    // setHtmlContent(html)
     setPersonalInfo({
       firstname: "",
       lastname: "",
