@@ -15,8 +15,9 @@ export async function POST(req) {
     const summary = formData.get("summary");
     const resume = formData.get("resume");
     const coverletter = formData.get("coverletter");
-    console.log(formData);
+    // console.log(formData);
     const photoBuffer = photo ? await photo.arrayBuffer() : null;
+    const resumeBuffer = resume ? await resume.arrayBuffer() : null;
     // Set up the Nodemailer transporter with your SMTP settings
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -30,29 +31,25 @@ export async function POST(req) {
 
     // Send the email
     const info = await transporter.sendMail({
-      from: '"Your Name" <your-email@yourdomain.com>', // Sender email
-      to: "recipient@example.com", // The recipient's email
-      subject: "New Contact Form Submission", // Email subject
-      html: `<h2>Form data for the post of ${post}</h2>
+      from: process.env.SMTP_USER, // Sender email
+      to: email, // The recipient's email
+      subject: `Applying Job for the post of ${post}`, // Email subject
+      html: `<h2>${headline}</h2>
                <p><strong>First Name:</strong> ${firstname}</p>
                <p><strong>Last Name:</strong> ${lastname}</p>
                <p><strong>Email:</strong> ${email}</p>
-               <p><strong>Headline:</strong> ${headline}</p>
                <p><strong>Phone Number:</strong> ${phone}</p>
                <p><strong>Address:</strong> ${address}</p>
-               <p><strong>Photo:</strong> ${
-                 photo?.name || "No file uploaded"
-               }</p>
                <p><strong>Summary:</strong> ${summary}</p>
-               <p><strong>Resume:</strong> ${
-                 resume?.name || "No file uploaded"
-               }</p>
                <p><strong>Cover Letter:</strong> ${coverletter}</p>`,
       attachments: [
         {
           filename: photo?.name || "photo.jpg", // Default filename
           content: Buffer.from(photoBuffer), // Convert ArrayBuffer to Buffer
-        },
+        },{
+          filename: resume?.name || "photo.jpg", // Default filename
+          content: Buffer.from(resumeBuffer), // Convert ArrayBuffer to Buffer
+        }
       ],
     });
 
