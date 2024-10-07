@@ -1,12 +1,9 @@
 "use client";
-// import BlackBtn from "./BlackBtn";
 import PersonalInfo from "./PersonalInfo";
 import photoIcon from "@/public/img/photoIcon.svg";
 import { useState } from "react";
 
 const ApplyingForm = (props) => {
-  const [database, setDatabase] = useState({});
-  // const [htmlContent,setHtmlContent]=useState('')
   const [personalInfo, setPersonalInfo] = useState({
     firstname: "",
     lastname: "",
@@ -26,76 +23,64 @@ const ApplyingForm = (props) => {
     coverletter: "",
   });
   const handleChange=(e)=>{
-    const {name,value}=e.target
-    setPersonalInfo((prevData)=>({
+    const { name, value } = e.target;
+
+  if (name in personalInfo) {
+    setPersonalInfo((prevData) => ({
       ...prevData,
-      [name]:value
-    }))
-    setProfile((prevData)=>({
+      [name]: value,
+    }));
+  } else if (name in profile) {
+    setProfile((prevData) => ({
       ...prevData,
-      [name]:value
-    }))
-    setDetails((prevData)=>({
+      [name]: value,
+    }));
+  } else if (name in details) {
+    setDetails((prevData) => ({
       ...prevData,
-      [name]:value
-    }))
+      [name]: value,
+    }));
+  }
   }
   const handleFileChange = (e) => {
-    const name=e.target.name
-    const selectedFiles = Array.from(e.target.files)
-    const singleFile=selectedFiles[0]
-    setPersonalInfo((prevData)=>({
-      ...prevData,
-      [name]:singleFile
-    }))
-    setProfile((prevData)=>({
-      ...prevData,
-      [name]:singleFile
-    }))
+    const { name } = e.target;
+    const file = e.target.files[0];
+  
+    if (name in personalInfo) {
+      setPersonalInfo((prevData) => ({
+        ...prevData,
+        [name]: file,
+      }));
+    } else if (name in profile) {
+      setProfile((prevData) => ({
+        ...prevData,
+        [name]: file,
+      }));
+    }
   };
-  // const generateHtmlContent = (title,data) => {
-  //   return `
-  //     <h2>Form data for the post of ${title}</h2>
-  //     <p><strong>First Name:</strong> ${data.firstname}</p>
-  //     <p><strong>Last Name:</strong> ${data.lastname}</p>
-  //     <p><strong>Email:</strong> ${data.email}</p>
-  //     <p><strong>Headline:</strong> ${data.headline}</p>
-  //     <p><strong>Phone Number:</strong> ${data.phone}</p>
-  //     <p><strong>Address:</strong> ${data.address}</p>
-  //     <p><strong>Photo:</strong> ${data.file?.name || 'No file uploaded'}</p>
-  //     <p><strong>Summary:</strong> ${data.summary}</p>
-  //     <p><strong>Resume:</strong> ${data.file?.name || 'No file uploaded'}</p>
-  //     <p><strong>Cover Letter:</strong> ${data.coverletter}</p>
-  //   `;
-  // };
+
   const handleSubmit= async(e)=>{
-    e.preventDefault()
-    // setFormData((prevData)=>[prevData,personalInfo,profile,details])
-    const combinedData = {
-      firstname: personalInfo.firstname,
-      lastname: personalInfo.lastname,
-      email: personalInfo.email,
-      headline: personalInfo.headline,
-      phone: personalInfo.phone,
-      address: personalInfo.address,
-      photo: personalInfo.photo,  // If you're sending just the name of the file
-      summary: profile.summary,
-      resume: profile.resume,     // If you're sending just the name of the file
-      coverletter: details.coverletter,
-    };
-    setDatabase({
-        post:props.heading,
-        data:combinedData
-      })
+    e.preventDefault();
+  
+    const formData = new FormData();
+    formData.append('post', props.heading);
+    formData.append('firstname', personalInfo.firstname);
+    formData.append('lastname', personalInfo.lastname);
+    formData.append('email', personalInfo.email);
+    formData.append('headline', personalInfo.headline);
+    formData.append('phone', personalInfo.phone);
+    formData.append('address', personalInfo.address);
+    if (personalInfo.photo) formData.append('photo', personalInfo.photo); // Add file
+    formData.append('summary', profile.summary);
+    if (profile.resume) formData.append('resume', profile.resume); // Add file
+    formData.append('coverletter', details.coverletter);
+  
     try {
       const response = await fetch('/api/emailHandle', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(database),
+        body: formData, // Send formData for file upload
       });
-
+  
       if (response.ok) {
         alert('Email sent successfully!');
       } else {
@@ -105,8 +90,7 @@ const ApplyingForm = (props) => {
       console.error('Error submitting form:', error);
       alert('An error occurred.');
     }
-    // const html=generateHtmlContent(props.heading,personalInfo)
-    // setHtmlContent(html)
+  
     setPersonalInfo({
       firstname: "",
       lastname: "",
@@ -115,18 +99,15 @@ const ApplyingForm = (props) => {
       phone: "",
       address: "",
       photo: null,
-    })
+    });
     setProfile({
-      // education: "",
-      // experience: "",
       summary: "",
-      // resume: "",
-    })
+      resume: null,
+    });
     setDetails({
       coverletter:""
-    })
-  }
-  console.log(database)
+    });
+  };
 
   const inputFields = [
     {
@@ -228,7 +209,6 @@ const ApplyingForm = (props) => {
       className="bg-black rounded-lg text-white flex items-center gap-1 h-14 px-5 text-sm 
       cursor-pointer m-auto" />
       </form>
-      {/* <BlackBtn name='Submit Application' /> */}
     </div>
   );
 };
