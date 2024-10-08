@@ -74,17 +74,20 @@ const ApplyingForm = (props) => {
     formData.append('summary', profile.summary);
     if (profile.resume) formData.append('resume', profile.resume); // Add file
     formData.append('coverletter', details.coverletter);
-  
+    // for (const [key, value] of formData.entries()) {
+    //   console.log(key, value);
+    // }    
     try {
-      const response = await fetch('/api/emailHandle', {
+      const response = await fetch('/api/users', {
         method: 'POST',
         body: formData, // Send formData for file upload
       });
-  
       if (response.ok) {
-        alert('Email sent successfully!');
+        // alert('Email sent successfully!');
+        alert('Data store successfully!');
       } else {
-        alert('Failed to send email.');
+        // alert('Failed to send email.');
+        alert('Failed to store data.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
