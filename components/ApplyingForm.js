@@ -93,6 +93,22 @@ const ApplyingForm = (props) => {
       console.error('Error submitting form:', error);
       alert('An error occurred.');
     }
+    try {
+      const response = await fetch('/api/emailHandle', {
+        method: 'POST',
+        body: formData, // Send formData for file upload
+      });
+      if (response.ok) {
+        // alert('Email sent successfully!');
+        alert('Data store successfully!');
+      } else {
+        // alert('Failed to send email.');
+        alert('Failed to store data.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred.');
+    }
   
     setPersonalInfo({
       firstname: "",
