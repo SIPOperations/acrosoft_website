@@ -4,12 +4,13 @@ import Image from "next/image";
 
 const JobForm = (props) => {
   const selectFields=['Workspace Type','Location','Department','Work Type']
-  const showPost=()=>{
-    console.log(props.posts)
-  }
+  // const showPost=()=>{
+  //   console.log(props.posts)
+  // }
+  console.log(props)
   return (
     <div>
-      <button onClick={showPost}>show posts</button>
+      {/* <button onClick={showPost}>show posts</button> */}
       <form 
       className="grid grid-cols-1 lg:grid-cols-4 gap-5">
         <span className="overflow-hidden rounded-[10px] flex items-center justify-center bg-[#EFEFEF]
