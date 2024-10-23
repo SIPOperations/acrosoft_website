@@ -13,6 +13,9 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sans: ['PolySans', 'sans-serif'], // Add PolySans to Tailwind
+      },
     },
   },
   plugins: [],

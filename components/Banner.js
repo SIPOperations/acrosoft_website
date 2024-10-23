@@ -5,12 +5,12 @@ import openlink from "../public/img/openlink.svg";
 const Banner = () => {
   return (
     <div className="relative">
-      <div className="absolute top-0 left-0 py-16 px-16 xl:px-40 h-full w-full flex xl:items-start 
+      <div className="absolute top-0 left-0 py-16 px-16 xl:px-40 h-full w-full flex 
       items-center flex-col justify-center">
-        <h1 className="font-extrabold text-white" style={{ fontSize: "64px" }}>
+        {/* <h1 className="font-extrabold text-white" style={{ fontSize: "64px" }}>
           Acrosoft
-        </h1>
-        <p className="hidden md:block text-center font-normal text-xl text-white xl:text-justify xl:w-4/12 mb-5">
+        </h1> */}
+        <p className="hidden md:block text-center font-black text-[52px] text-white mb-5">
           Since 2006, Afiniti has been a pioneer in customer experience (CX)
           artificial intelligence (AI), delivering measurably better business
           outcomes.
@@ -28,7 +28,7 @@ const Banner = () => {
         height="auto"
         width="100%"
       >
-        <source src="videos/Acrosoft.mp4" type="video/mp4" />
+        <source src="videos/Acrosoft-2.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
