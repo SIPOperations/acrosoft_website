@@ -11,9 +11,10 @@ const Banner = () => {
           Acrosoft
         </h1> */}
         <p className="hidden md:block text-center font-black text-[52px] text-white mb-5">
-          Since 2006, Afiniti has been a pioneer in customer experience (CX)
+          {/* Since 2006, Afiniti has been a pioneer in customer experience (CX)
           artificial intelligence (AI), delivering measurably better business
-          outcomes.
+          outcomes. */}
+          As a global software engineering firm, we're been delivering success for over 20 years.
         </p>
         <div className="hidden md:flex items-center gap-4">
           <WhiteBtn icon={play} />
