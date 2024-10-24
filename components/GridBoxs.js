@@ -26,7 +26,9 @@ const GridBoxs = (props) => {
           bg-white  ${props.shadow ? "boxShade" : ""}`}
         >
           <div
-            className={props.name === "quotes" ? "flex items-center gap-5" : ""}
+            className={props.name === "quotes" ? 
+              "flex items-center gap-5" : 
+              "flex flex-col items-center lg:items-start"}
           >
             {work.heading !== "Timely Work" &&
             work.heading !== "Reliability" &&

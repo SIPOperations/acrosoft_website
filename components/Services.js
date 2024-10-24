@@ -26,10 +26,12 @@ const Services = () => {
     },
   ]
   return (
-    <div className="text-center xl:text-left flex flex-col gap-y-28 xl:flex-row justify-between 
-    px-16 xl:px-40 py-20 bg-[#F4F9FF]">
+    <div className="text-center xl:text-left flex flex-col gap-y-28 xl:flex-row gap-10 
+    px-16 xl:px-40 py-20 bg-[#F4F9FF] items-center">
         <Listing2 myList={servicelist} heading={'Our Services'} icon={true} hover={true} />
-        <SmallImage myImage={images} />
+        <div className='p-16'>
+          <SmallImage myImage={images} />
+        </div>
     </div>
   )
 }

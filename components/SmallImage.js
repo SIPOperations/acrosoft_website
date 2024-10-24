@@ -12,9 +12,9 @@ const SmallImage = (props) => {
           alt=""
           className={`${
             image === topLightLogo
-              ? "absolute -top-11 -left-12"
+              ? "absolute -top-11 -left-11"
               : image === bottomLightLogo
-              ? "absolute -bottom-7 -right-5"
+              ? "absolute -bottom-7 -right-7"
               : `relative z-10 min-w-full ${!props.profile ? 'shadow-xl rounded-xl border-none' : ''}`
           }`}
         />

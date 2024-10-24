@@ -7,7 +7,7 @@ const Listing2 = (props) => {
   const lastWord=lastWordArr.toString()
   const heading=headingArray.toString().replace(/,/g,' ')
   return (
-    <div className={`${props.heading==='Our Values'?'w-full':'w-auto'}`}>
+    <div className={`${props.heading==='Our Values'?'w-full':''}`}>
       <h1 className="font-extrabold text-[64px] text-[#1B1B1B]">
         {heading} <span className="text-[#1C6EC4]">{lastWord}</span>
       </h1>
