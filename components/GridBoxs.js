@@ -1,7 +1,8 @@
 import Image from "next/image";
-import reliability from "../public/img/reliability2.svg";
-import workTime from "../public/img/time2.svg";
-import maintainIcon from "../public/img/maintainIcon2.svg";
+import quality from "../public/img/quality3.svg";
+import reliability from "../public/img/reliability3.svg";
+import workTime from "../public/img/time3.svg";
+import maintainIcon from "../public/img/maintainIcon3.svg";
 import bussiness from "../public/img/bussiness.svg";
 import technology from "../public/img/technology.svg";
 import strategy from "../public/img/strategy.svg";
@@ -31,6 +32,7 @@ const GridBoxs = (props) => {
               "flex flex-col items-center lg:items-start"}
           >
             {work.heading !== "Timely Work" &&
+            work.heading !== "Quality Products" &&
             work.heading !== "Reliability" &&
             work.heading !== "Maintainable" &&
             work.heading !== "Software Implementation Strategy" &&
@@ -42,6 +44,8 @@ const GridBoxs = (props) => {
                     <Image src={work.img} alt="" />
                     <Image
                       src={
+                        work.heading === "Quality Products" ?
+                        quality :
                         work.heading === "Timely Work"
                           ? workTime
                           : work.heading === "Reliability"

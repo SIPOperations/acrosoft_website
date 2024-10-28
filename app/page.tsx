@@ -12,8 +12,8 @@ export default function Home() {
       <Banner />
       {/* <Sponsers /> */}
       <Services />
-      <Work />
       <Digital />
+      <Work />
       <Project />
       <Carousel />
     </div>

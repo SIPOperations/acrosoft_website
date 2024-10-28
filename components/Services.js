@@ -217,13 +217,14 @@ const Services = () => {
   return (
     <div
       className="text-center xl:text-left flex flex-col gap-y-28 xl:flex-row gap-10 
-     bg-[#F4F9FF] border-b border-slate-300"
+     bg-[#F4F9FF]"
     >
       <Listing2
         myList={servicelist}
         heading={"Our Services"}
         icon={true}
         hover={true}
+        service={service}
         setService={setService}
       />
       <ServiceDetails service={service} />

@@ -38,7 +38,7 @@ const ServiceDetails = (props) => {
 //     },
 //   ];
   return (
-    <div className="pr-16 xl:pr-40 pl-14 py-28 bg-white w-1/2 h-full flex flex-col gap-5">
+    <div className="pr-16 xl:pr-40 pl-14 py-28 bg-white w-full xl:w-1/2 h-full flex flex-col gap-5">
       <div className="flex flex-col gap-5">
         <h1 className="font-bold text-3xl">{props.service.name}</h1>
         <p>{props.service.content}</p>
@@ -56,13 +56,16 @@ const ServiceDetails = (props) => {
               <Image src={services} alt="" className="w-44 h-full" /> 
             }
             <div className="p-3 pb-12 flex flex-col gap-3">
-              <h1 className="font-semibold text-lg">
+              <h1 className="font-semibold text-lg hover:underline">
                 {detail.subHead}
               </h1>
               <p>{detail.subContent}</p>
             </div>
-            <div className="border border-slate-300 border-r-0 border-b-0 p-3 absolute -bottom-0 -right-0">
-              <Image src={rightArrow} alt="" />
+            <div className="group border border-slate-300 border-r-0 border-b-0 p-3 absolute -bottom-0 -right-0">
+              <Image 
+              src={rightArrow} 
+              alt=""
+              className="transition ease-in-out duration-300 group-hover:translate-x-1" />
             </div>
           </Link>
         ))}

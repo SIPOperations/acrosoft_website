@@ -1,11 +1,11 @@
-import quality from "../public/img/quality2.svg";
-import maintainable from "../public/img/maintainable2.svg";
+// import quality from "../public/img/quality3.svg";
+import maintainable from "../public/img/maintainable3.svg";
 import GridBoxs from "./GridBoxs";
 
 const Work = () => {
   const working = [
     {
-      img: quality,
+      img: maintainable,
       heading: "Quality Products",
       content:
         "We believe in Software Quality that is essential to deliver the product on time and on the required quality.",

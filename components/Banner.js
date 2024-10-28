@@ -5,9 +5,9 @@
 const Banner = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      <div className="relative top-0 left-0 py-16 px-16 xl:px-40 h-full w-full flex 
+      <div className="relative top-0 left-0 py-16 px-16 xl:px-20 h-full w-full flex 
       items-center flex-col justify-center">
-        <p className="block text-center text-white mb-5 drop-shadow-xl
+        <p className="block text-center text-white mb-5 drop-shadow-2xl
          text-[60px] font-bold">
           As a global software engineering firm, we're been delivering success for over 20 years.
         </p>
