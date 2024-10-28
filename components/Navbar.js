@@ -122,7 +122,7 @@ const Navbar = () => {
                         ? "/"
                         : ""
                     }
-                    className={`flex gap-1 text-base font-medium font-sans
+                    className={`flex gap-1 text-[20px] font-semibold font-sans
                     ${navlink === "Services" ? 
                     'group hover:h-[5.5rem] serviceChild flex items-center' : 
                     ''}`}
