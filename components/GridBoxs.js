@@ -1,8 +1,8 @@
 import Image from "next/image";
-import quality from "../public/img/quality3.svg";
-import reliability from "../public/img/reliability3.svg";
-import workTime from "../public/img/time3.svg";
-import maintainIcon from "../public/img/maintainIcon3.svg";
+import quality from "../public/img/quality4.svg";
+import reliability from "../public/img/reliability4.svg";
+import workTime from "../public/img/time4.svg";
+import maintainIcon from "../public/img/maintainIcon4.svg";
 import bussiness from "../public/img/bussiness.svg";
 import technology from "../public/img/technology.svg";
 import strategy from "../public/img/strategy.svg";
@@ -70,12 +70,21 @@ const GridBoxs = (props) => {
                       : work.heading === "Technology Advisory Services"
                       ? "top-0 left-0"
                       : "top-3.5 left-4"
+                  }
+                  ${
+                    work.heading === "Quality Products" ||
+                    work.heading === "Reliability" ||
+                    work.heading === "Timely Work"
+                      ? "left-[14.5px] top-[14.5px]"
+                      : work.heading === "Maintainable"
+                      ? "top-0"
+                      : "top-3.5 left-4"
                   }`}
                     />
                   </div>
                 )}
             <div>
-              <h1 className="font-medium" style={{ fontSize: "32px" }}>
+              <h1 className="font-medium mt-4" style={{ fontSize: "32px" }}>
                 {work.heading}
               </h1>
               {work.rate && (
